@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;    
+    font-family: "Sora", sans-serif;
+    
+    /*"Gloria Hallelujah", cursive*/
+    /*"Indie Flower", cursive*/
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Indie+Flower&family=Sora:wght@100..800&display=swap');
+
+   /* HEADER --------------- */
+header{
+    background-color: #e99445;
+    text-align: center;    
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    padding: 20px; 
+    text-transform:uppercase ;
+}
+header ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    list-style: none;
+    
+    
+}
+
+header ul li a{
+    color: white;
+    text-decoration-line: none;    
+    font-size: 1.3rem;
+    
+}
+
+header ul li a:hover{
+    text-decoration-line: underline;
+    line-height: 3px;
+    transition:1s ease-in;
+}
+
+   /* SECAO 1 ---------------*/
+
+main{
+    background-color:#e99445 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-flow: column wrap;
+}   
+
+#s1{    
+    display: flex;
+    align-items: center;
+    justify-self: center;   
+   
+    
+}
+
+#s1 .inicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    gap: 71%;  
+    
+}
+#s1 .inicio .exo h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9rem;
+    font-weight: lighter; 
+    text-transform:uppercase;   
+}
+
+#s1 .inicio .img img{
+    margin: 0px;
+    padding: 0px;    
+}
+
+/* SECAO 2 =========================*/
+
+#s2{
+    background-color: #252523;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: -4px;
+    padding-top:50px ;
+    padding-bottom: 50px;
+}
+
+#s2 .nome{
+    font-family: "Sora", sans-serif;
+    font-size: 7rem;
+    text-transform:uppercase ;
+    font-weight: bolder;
+}
+
+#s2 .his{
+    width: 500px;
+    font-family:"Indie Flower", cursive ;
+}
