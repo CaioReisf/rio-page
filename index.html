@@ -1,90 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rio Retrô</title><!--- {} () [] -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+  
+  
 </head>
 <body>
-
-  <header>
-    <h1>Rio Retrô</h1>
-    <p>A nostalgia da Cidade Maravilhosa</p>
-  </header>
-
-  <section class="sc1">
-    <h2>Sinta o clima vintage</h2>
-    <p>Entre no ritmo da bossa nova, das ondas suaves de Ipanema e da elegância dos anos 80 no Rio de Janeiro.</p>
-    <a href="#s2" class="boao">Explorar</a>
-  </section>
-
-  <section class="sc2" id="s2">
-    <h1>O Jeito Carioca de Ser</h1>
-    <p>
-        Viver no Rio dos anos 80 era como dançar <br>permanentemente entre o caos e a beleza. O carioca enfrentava crises econômicas e <br>inseguranças com a leveza de quem sabe que, no fim da tarde, o pôr do sol no Arpoador vai <br>continuar lindo. Havia uma fé inabalável no improviso, uma alegria em fazer pouco com muito. Era uma cidade de extremos — mas também de <br>encontros. No Rio, todo mundo era um pouco artista, um pouco filósofo e muito sonhador. O jeitinho carioca era, e ainda é, um reflexo de um <br>povo que vive com o coração na palma da mão.
-    </p>
-
-    <h2>Um passeio pelo Rio - 1980:</h2>
-    <iframe width="500" height="315" src="https://www.youtube.com/embed/xTy-jvmvppo?si=-pMioGjruNHK5uxl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-  </section>
+  <h1>Minha lista de tarefas</h1>
+  <input type="text" id="intaf" placeholder="escreva sua tarefa" >
+  <input type="button" value="adicionar tarefa" class="btn" id="btnad">
+  <ul id="outres">
   
-  <section class="sc3" id="s3">
-    <h1>Música e Batida Carioca</h1>
-    <p>
-      Nos anos 80, o Rio de Janeiro pulsava ao som de novas batidas. O samba continuava rei nos morros e bairros tradicionais, mas era o surgimento do funk carioca, ainda em sua forma embrionária, que anunciava uma revolução sonora. Nas rádios e bailes da zona norte, Tim Maia ditava o ritmo com sua voz inconfundível, enquanto Lulu Santos e Blitz traziam o frescor do pop e da new wave com uma pegada tipicamente carioca. O rádio de pilha na praia era uma trilha sonora viva, misturando bossa nova, rock brasileiro e o começo do rap — sempre com a ginga e o improviso que só o Rio tem.
-    </p>
+   
+  </ul>
 
-    <h2>A verdadeira música popular brasileira:</h2>
-
-    <iframe width="500" height="315" src="https://www.youtube.com/embed/Lfkdny98UsE?si=7xddW013nMb1_z61" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
-
-  </section>
-
-  <section class="sc2" id="s2">
-    <h1>Malandragem Carioca</h1>
-    <p>
-      Ser carioca nos anos 80 era viver com leveza — mesmo quando o tempo fechava. A malandragem romântica, herdada de Noel Rosa e lapidada nas rodas de samba, estava presente no linguajar, na roupa aberta no peito, na ginga ao andar. O carioca dominava a arte de resolver tudo com conversa, simpatia e um sorriso. A camisa aberta, o chinelo no calcanhar e o olhar sagaz resumiam um estilo de vida irreverente, apaixonado e cheio de personalidade. Era tempo de boteco na esquina, futebol na areia e conversa fiada como patrimônio cultural.
-    </p>
-
-    <h2>Os 10 Mandamentos de Malandro:</h2>
-
-    <iframe width="500" height="315" src="https://www.youtube.com/embed/pgkNfZucocQ?si=Y29BE10dws_A4tdw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
-    
-
-  </section>
-
-  <section class="sc3" id="s3">
-    <h1>O Charme da Cidade</h1>
-    <p>
-      O Rio dos anos 80 era puro cinema. A Lapa fervilhava com suas noites boêmias, cheia de artistas, poetas e músicos. Copacabana, com seus quiosques e calçadão inconfundível, era palco de encontros improváveis entre turistas, músicos e moradores locais. Já o Leblon e Ipanema reuniam intelectuais, surfistas e juventude dourada sob o sol. O Largo do Machado, o Maracanã, os bondes de Santa Teresa e os bailes no subúrbio eram mais que lugares — eram pontos de resistência cultural, onde a cidade mostrava sua alma.
-    </p>
-
-    <h2>A Cidade Maravilhosa:</h2>  
-    
-    
-  <div class="carrossel" id="carrossel">
-    <div class="slide" style="background-image: url('imagens/lapa.webp');" data-caption="Lapa"></div>
-    <div class="slide" style="background-image: url('imagens/ipanema.webp');" data-caption="Ipanema"></div>
-    <div class="slide" style="background-image: url('imagens/lebln.webp');" data-caption="Leblon"></div>
-    <div class="slide" style="background-image: url('imagens/jardim.webp');" data-caption="Pauque lage."></div>
-  </div>
-
-  <div class="nav">
-    <a href="#carrossel" onclick="document.getElementById('carrossel').scrollTo({left: 0, behavior: 'smooth'})"></a>
-    <a href="#carrossel" onclick="document.getElementById('carrossel').scrollTo({left: window.innerWidth, behavior: 'smooth'})"></a>
-    <a href="#carrossel" onclick="document.getElementById('carrossel').scrollTo({left: window.innerWidth * 3, behavior: 'smooth'})"></a>
-  </div>
-
-</section>
-
-<footer> 
-    <h2>Venha para a Cidade Maravilhosa!</h2> 
-</footer>
-
+  <script src="todo.js"></script>
 </body>
 </html>
