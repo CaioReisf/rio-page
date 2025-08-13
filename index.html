@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CYBERMODS™ — Loja de Implantes</title>
-  <meta name="description" content="CyberMods™ — Implantes cibernéticos de alta performance. Melhore seu corpo, eleve suas habilidades." />
+  <title>CyberMods™ — Implantes Cibernéticos</title>
+  <meta name="description" content="CyberMods™ — Implantes cibernéticos de alta performance. Estética cyberpunk com carrinho e HUD interativo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0a0f14;           /* fundo profundo */
-      --panel:#0d131a;        /* painéis */
-      --line:#10202c;         /* linhas HUD */
-      --cyan:#00f6ff;         /* ciano neon */
-      --pink:#ff2e88;         /* magenta neon */
-      --violet:#8a2be2;       /* violeta*/
-      --text:#d9eff2;         /* texto claro */
-      --muted:#7aa0a6;        /* texto secundário */
-      --glass:rgba(16,28,40,.55);
+      --bg:#07090d; --panel:#0c1320; --line:#10202c;
+      --cyan:#00f6ff; --pink:#ff2e88; --violet:#8a2be2; --yellow:#ffe066;
+      --text:#d9eff2; --muted:#7aa0a6; --glass:rgba(16,28,40,.55);
       --radius:22px;
       --shadow-neon:0 0 12px rgba(0,246,255,.65),0 0 32px rgba(0,246,255,.25);
       --shadow-pink:0 0 12px rgba(255,46,136,.65),0 0 32px rgba(255,46,136,.25);
@@ -26,76 +20,48 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; background:radial-gradient(1200px 800px at 80% -10%, rgba(255,46,136,.12), transparent 60%),
-               radial-gradient(900px 600px at -20% 20%, rgba(0,246,255,.14), transparent 60%),
-               var(--bg);
+      margin:0; background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(255,46,136,.12), transparent 60%),
+        radial-gradient(900px 600px at -20% 20%, rgba(0,246,255,.14), transparent 60%),
+        var(--bg);
       color:var(--text);
       font-family:"Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      letter-spacing:.2px;
-      overflow-x:hidden;
+      letter-spacing:.2px; overflow-x:hidden; cursor:none;
     }
-    /* grade HUD sutil */
-    body::before{
-      content:""; position:fixed; inset:0; pointer-events:none; opacity:.2;
-      background:
-        linear-gradient(#0d1720 1px, transparent 1px) repeat-y 0 0/100% 32px,
-        linear-gradient(90deg, #0d1720 1px, transparent 1px) repeat-x 0 0/32px 100%;
-    }
-    /* scanlines */
-    body::after{
-      content:""; position:fixed; inset:0; pointer-events:none; mix-blend-mode:overlay; opacity:.08;
-      background:repeating-linear-gradient(180deg, rgba(255,255,255,.08) 0 2px, transparent 2px 4px);
-    }
+    body::before{content:""; position:fixed; inset:0; pointer-events:none; opacity:.2; background:
+      linear-gradient(#0d1720 1px, transparent 1px) repeat-y 0 0/100% 32px,
+      linear-gradient(90deg, #0d1720 1px, transparent 1px) repeat-x 0 0/32px 100%;}
+    body::after{content:""; position:fixed; inset:0; pointer-events:none; mix-blend-mode:overlay; opacity:.08; background:repeating-linear-gradient(180deg, rgba(255,255,255,.08) 0 2px, transparent 2px 4px);}    
     a{color:inherit; text-decoration:none}
 
-    /* Header */
-    .container{width:min(1200px, 92vw); margin-inline:auto}
-    header{
-      position:sticky; top:0; z-index:20; backdrop-filter: blur(8px);
-      background: linear-gradient(180deg, rgba(10,15,20,.75), rgba(10,15,20,.35));
-      border-bottom:1px solid var(--line);
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:16px 0}
-    .brand{font-family:Orbitron, system-ui, sans-serif; font-weight:800; font-size: clamp(22px, 2vw + 8px, 28px); letter-spacing:2px; color:var(--cyan); text-shadow:var(--shadow-neon)}
+    .container{width:min(1200px,92vw); margin-inline:auto}
+    header{position:sticky; top:0; z-index:30; backdrop-filter: blur(8px); background:linear-gradient(180deg, rgba(7,9,13,.8), rgba(7,9,13,.35)); border-bottom:1px solid var(--line)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:14px 0}
+    .brand{font-family:Orbitron, system-ui, sans-serif; font-weight:800; font-size:clamp(22px,2vw+8px,28px); letter-spacing:2px; color:var(--cyan); text-shadow:var(--shadow-neon)}
     .menu{display:flex; gap:18px; align-items:center}
     .menu a{font-size:14px; color:var(--muted); padding:8px 12px; border-radius:999px; border:1px solid transparent; transition:.2s}
     .menu a:hover{color:var(--text); border-color:rgba(0,246,255,.35); box-shadow:var(--shadow-neon)}
-    .cart{display:flex; align-items:center; gap:8px}
-    .badge{background:var(--pink); color:#fff; font-weight:700; padding:2px 8px; border-radius:12px; box-shadow:var(--shadow-pink)}
+    .cart{display:flex; align-items:center; gap:10px}
+    .badge{background:var(--pink); color:#fff; font-weight:800; padding:2px 8px; border-radius:12px; box-shadow:var(--shadow-pink)}
 
-    /* Hero */
     .hero{position:relative; padding:clamp(48px, 10vh, 120px) 0 64px}
-    .grid-hero{display:grid; grid-template-columns:1.1fr .9fr; gap:min(4vw, 40px); align-items:center}
+    .grid-hero{display:grid; grid-template-columns:1.1fr .9fr; gap:min(4vw,40px); align-items:center}
     .eyebrow{color:var(--pink); font-weight:700; letter-spacing:3px}
-    .title{font-family:Orbitron, system-ui, sans-serif; font-weight:800; line-height:1.02;
-      font-size:clamp(34px, 5.6vw, 80px); margin:10px 0 14px; text-shadow:0 0 2px #fff, var(--shadow-pink)}
+    .title{font-family:Orbitron, system-ui, sans-serif; font-weight:800; line-height:1.02; font-size:clamp(34px,5.6vw,80px); margin:10px 0 14px; text-shadow:0 0 2px #fff, var(--shadow-pink)}
     .subtitle{color:var(--muted); font-size:clamp(14px, 1.2vw, 18px); max-width:60ch}
-
     .cta{display:flex; gap:14px; margin-top:24px}
-    .btn{position:relative; padding:14px 18px; border-radius:12px; border:1px solid var(--cyan); color:var(--cyan);
-      background:linear-gradient(180deg, rgba(0,246,255,.08), rgba(0,246,255,.02));
-      box-shadow:var(--shadow-neon); font-weight:700; text-transform:uppercase; letter-spacing:1px; transition:transform .15s ease}
+    .btn{position:relative; padding:14px 18px; border-radius:12px; border:1px solid var(--cyan); color:var(--cyan); background:linear-gradient(180deg, rgba(0,246,255,.08), rgba(0,246,255,.02)); box-shadow:var(--shadow-neon); font-weight:700; text-transform:uppercase; letter-spacing:1px; transition:transform .15s ease}
     .btn:hover{transform:translateY(-1px)}
     .btn.pink{border-color:var(--pink); color:#fff; background:linear-gradient(180deg, rgba(255,46,136,.2), rgba(255,46,136,.06)); box-shadow:var(--shadow-pink)}
 
-    .panel{position:relative; background:var(--glass); border:1px solid rgba(0,246,255,.2); border-radius:var(--radius);
-      box-shadow:0 8px 30px rgba(0,0,0,.35), inset 0 0 80px rgba(0,246,255,.04)}
+    .panel{position:relative; background:var(--glass); border:1px solid rgba(0,246,255,.2); border-radius:var(--radius); box-shadow:0 8px 30px rgba(0,0,0,.35), inset 0 0 80px rgba(0,246,255,.04)}
 
-    .product-card{padding:18px; border:1px solid rgba(255,46,136,.2); border-radius:16px; background:linear-gradient(180deg, rgba(255,46,136,.04), rgba(0,246,255,.03));
-      transition:transform .15s ease, box-shadow .15s ease}
-    .product-card:hover{transform:translateY(-2px); box-shadow:var(--shadow-neon), var(--shadow-pink)}
-    .product-title{font-family:Orbitron; font-weight:700; color:#fff; margin:0 0 6px; letter-spacing:.5px}
-    .product-desc{color:var(--muted); font-size:14px; min-height:44px}
-    .price{color:var(--cyan); font-weight:800; font-size:18px; margin-top:8px; text-shadow:var(--shadow-neon)}
+    .hero-art{position:relative; height:100%; min-height:360px; overflow:hidden}
+    .hero-art img{width:100%; height:100%; object-fit:cover; border-radius:18px; border:1px solid rgba(0,246,255,.25); filter:contrast(1.02) saturate(1.05) drop-shadow(0 0 30px rgba(0,246,255,.2))}
+    .hud-chip{position:absolute; inset:auto 12px 12px auto; background:rgba(0,0,0,.45); border:1px solid rgba(0,246,255,.4); border-radius:10px; padding:8px 10px; font-size:12px; color:var(--cyan)}
 
-    .hero-art{position:relative; height:100%; min-height:320px}
-    .arm{position:absolute; right:0; bottom:-16px; width:min(480px, 40vw); aspect-ratio:3/5; border:1px dashed rgba(0,246,255,.2); border-radius:18px;
-      background:linear-gradient(135deg, rgba(0,246,255,.06), rgba(255,46,136,.06)); filter:drop-shadow(0 0 30px rgba(0,246,255,.2));}
-    .arm::before{content:"BRAÇO Mk-IX"; position:absolute; top:10px; left:10px; font-size:12px; color:var(--muted); letter-spacing:2px}
-
-    /* Seções */
     section{padding:72px 0}
-    .section-title{font-family:Orbitron; font-size: clamp(20px, 2.6vw, 32px); margin:0 0 18px}
+    .section-title{font-family:Orbitron; font-size:clamp(20px,2.6vw,32px); margin:0 0 18px}
     .section-sub{color:var(--muted); margin:0 0 28px}
 
     .features{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
@@ -103,6 +69,12 @@
     .feat h4{margin:0 0 8px; color:var(--cyan); font-family:Orbitron}
 
     .products{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .product-card{position:relative; padding:18px; border:1px solid rgba(255,46,136,.25); border-radius:16px; background:linear-gradient(180deg, rgba(255,46,136,.05), rgba(0,246,255,.04)); transition:transform .15s ease, box-shadow .15s ease}
+    .product-card:hover{transform:translateY(-2px); box-shadow:var(--shadow-neon), var(--shadow-pink)}
+    .product-card img{width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius:12px; border:1px solid rgba(0,246,255,.25)}
+    .product-title{font-family:Orbitron; font-weight:700; color:#fff; margin:10px 0 6px; letter-spacing:.5px}
+    .product-desc{color:var(--muted); font-size:14px; min-height:44px}
+    .price{color:var(--cyan); font-weight:800; font-size:18px; margin-top:8px; text-shadow:var(--shadow-neon)}
 
     .testi{display:grid; grid-template-columns:1fr 1fr; gap:18px}
     blockquote{margin:0; padding:18px; border-left:3px solid var(--pink); background:rgba(255,46,136,.06); border-radius:12px}
@@ -111,32 +83,44 @@
     footer{padding:28px 0 48px; border-top:1px solid var(--line); color:var(--muted)}
     .footer-grid{display:grid; grid-template-columns:1fr auto; align-items:center}
 
-    /* Toast */
     .toast{position:fixed; right:16px; bottom:16px; background:#0b1620; color:#d9f7ff; border:1px solid rgba(0,246,255,.35); padding:12px 14px; border-radius:14px; box-shadow:var(--shadow-neon); opacity:0; transform:translateY(10px); transition:.25s; z-index:50}
     .toast.show{opacity:1; transform:translateY(0)}
 
-    /* Responsivo */
-    @media (max-width: 900px){
-      .grid-hero{grid-template-columns:1fr}
-      .hero-art{order:-1; margin-bottom:24px}
-      .features, .products{grid-template-columns:1fr 1fr}
-      .testi{grid-template-columns:1fr}
-    }
-    @media (max-width: 560px){
-      .menu{display:none}
-      .features, .products{grid-template-columns:1fr}
-    }
-
-    /* glitch leve no título */
+    /* Glitch utilitário */
     .glitch{position:relative; display:inline-block}
     .glitch::before,.glitch::after{content:attr(data-text); position:absolute; left:0; top:0; width:100%; overflow:hidden}
     .glitch::before{left:1px; text-shadow:-1px 0 var(--cyan); animation:gl1 2.4s infinite}
     .glitch::after{left:-1px; text-shadow:1px 0 var(--pink); animation:gl2 2.1s infinite}
     @keyframes gl1{0%{clip-path:inset(0 0 85% 0)} 10%{clip-path:inset(0 0 0 0)} 20%{clip-path:inset(80% 0 0 0)} 100%{clip-path:inset(0 0 85% 0)}}
     @keyframes gl2{0%{clip-path:inset(70% 0 0 0)} 15%{clip-path:inset(0 0 0 0)} 30%{clip-path:inset(0 0 75% 0)} 100%{clip-path:inset(70% 0 0 0)}}
+
+    /* Cursor neon */
+    .cursor{position:fixed; left:0; top:0; width:22px; height:22px; border-radius:999px; border:2px solid var(--cyan); pointer-events:none; transform:translate(-50%, -50%); box-shadow:var(--shadow-neon); mix-blend-mode:screen; z-index:60}
+    .cursor::after{content:""; position:absolute; inset:-8px; border-radius:inherit; border:1px dashed rgba(255,46,136,.6); animation:spin 4s linear infinite; opacity:.6}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* Carrinho lateral */
+    #drawer{position:fixed; top:0; right:-360px; width:min(360px, 92vw); height:100dvh; background:rgba(7,9,13,.98); border-left:1px solid var(--line); transition:right .25s ease; z-index:55; display:flex; flex-direction:column}
+    #drawer.open{right:0}
+    #drawer header{display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid var(--line)}
+    #drawer main{padding:12px 16px; overflow:auto; flex:1}
+    #drawer footer{padding:12px 16px; border-top:1px solid var(--line)}
+
+    /* Responsivo */
+    @media (max-width:900px){
+      .grid-hero{grid-template-columns:1fr}
+      .hero-art{order:-1;margin-bottom:18px}
+      .features,.products{grid-template-columns:1fr 1fr}
+      .testi{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .menu{display:none}
+      .features,.products{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
+  <div class="cursor" id="cursor"></div>
   <header>
     <div class="container nav">
       <div class="brand">CYBERMODS™</div>
@@ -145,7 +129,7 @@
         <a href="#catalogo">Catálogo</a>
         <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
-        <div class="cart" aria-live="polite" title="Carrinho">
+        <div class="cart" aria-live="polite" title="Carrinho" id="openCart">
           🛒 <span id="cartCount" class="badge">0</span>
         </div>
       </nav>
@@ -155,7 +139,7 @@
   <main id="inicio" class="hero">
     <div class="container grid-hero">
       <div>
-        <div class="eyebrow">NEON EDITION // 2124</div>
+        <div class="eyebrow">NEON EDITION // 2099</div>
         <h1 class="title glitch" data-text="LOJA DE IMPLANTES">LOJA DE IMPLANTES</h1>
         <p class="subtitle">Entre no futuro da evolução humana. Implantes cibernéticos de alta performance para força, velocidade e resistência sobre‑humanas.</p>
         <div class="cta">
@@ -164,7 +148,9 @@
         </div>
       </div>
       <div class="hero-art panel">
-        <div class="arm" aria-hidden="true"></div>
+        <!-- Salve o arquivo abaixo como img/hero-arm.png na mesma pasta do HTML -->
+        <img src="img/imgheroarm.png" alt="Braço cibernético avançado">
+        <div class="hud-chip">BRAÇO Mk‑IX • POLÍMEROS CARBONO • 300%+</div>
       </div>
     </div>
   </main>
@@ -173,18 +159,9 @@
     <h2 class="section-title">Por que escolher a <span style="color:var(--cyan)">CyberMods</span>?</h2>
     <p class="section-sub">Tecnologia de nível corporativo, instalada com segurança e coberta por garantia vitalícia.</p>
     <div class="features">
-      <div class="feat panel">
-        <h4>⚙️ Tecnologia Militar</h4>
-        <p>Componentes com liga de titânio e circuito fotônico. Compatível com 97% dos organismos.</p>
-      </div>
-      <div class="feat panel">
-        <h4>🧪 Instalação Segura</h4>
-        <p>Procedimentos certificados e acompanhamento médico com IA clínica integrada.</p>
-      </div>
-      <div class="feat panel">
-        <h4>♾️ Garantia Vitalícia</h4>
-        <p>Atualizações de firmware e manutenção preventiva sem custo adicional.</p>
-      </div>
+      <div class="feat panel"><h4>⚙️ Tecnologia Militar</h4><p>Componentes com liga de titânio e circuito fotônico. Compatível com 97% dos organismos.</p></div>
+      <div class="feat panel"><h4>🧪 Instalação Segura</h4><p>Procedimentos certificados e acompanhamento médico com IA clínica integrada.</p></div>
+      <div class="feat panel"><h4>♾️ Garantia Vitalícia</h4><p>Atualizações de firmware e manutenção preventiva sem custo adicional.</p></div>
     </div>
   </section>
 
@@ -192,19 +169,22 @@
     <h2 class="section-title">Catálogo em Destaque</h2>
     <p class="section-sub">Escolha seu upgrade. A sua evolução começa agora.</p>
     <div class="products">
-      <article class="product-card" data-id="braço" data-price="799.99">
+      <article class="product-card" data-id="braco" data-price="799.99">
+        <img src="img/imgprodbraco.png" alt="Implante de força — braço cibernético">
         <h3 class="product-title">Implante Cibernético de Força</h3>
         <p class="product-desc">Aumente sua força física em até <strong>300%</strong>. Ideal para operações pesadas e combate urbano.</p>
         <div class="price">R$ <span class="money">799,99</span></div>
         <button class="btn add">Adicionar ao Carrinho</button>
       </article>
       <article class="product-card" data-id="optica" data-price="1299.99">
+        <img src="img/imgprodoptica.png" alt="Óptica Neural Avançada">
         <h3 class="product-title">Óptica Neural Avançada</h3>
         <p class="product-desc">Visão noturna, zoom óptico 12x e análise tática em tempo real com sobreposição AR.</p>
         <div class="price">R$ <span class="money">1.299,99</span></div>
         <button class="btn add">Adicionar ao Carrinho</button>
       </article>
       <article class="product-card" data-id="cardio" data-price="999.99">
+        <img src="img/imgprodoptica.png" alt="Sistema Cardíaco Quantum">
         <h3 class="product-title">Sistema Cardíaco Quantum</h3>
         <p class="product-desc">Resistência ampliada, fadiga reduzida em <strong>−42%</strong> e otimização microvascular.</p>
         <div class="price">R$ <span class="money">999,99</span></div>
@@ -243,45 +223,96 @@
 
   <footer>
     <div class="container footer-grid">
-      <small>© 2124 CyberMods™ — Distrito 7, Neon City, Torre A‑94</small>
+      <small>© 2099 CyberMods™ — Distrito 7, Neon City, Torre A‑94</small>
       <div>contato@cybermods.com • IG • X • TikTok</div>
     </div>
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script>
-    // Carrinho simples em memória
-    const cart = { items: 0 };
-    const cartCount = document.getElementById('cartCount');
-    const moneyBR = n => n.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
+  <!-- Drawer / Carrinho -->
+  <aside id="drawer" aria-label="Carrinho">
+    <header>
+      <strong>Seu Carrinho</strong>
+      <button class="btn" id="closeCart" style="padding:6px 10px">Fechar</button>
+    </header>
+    <main>
+      <ul id="cartList" style="list-style:none; padding:0; margin:0"></ul>
+    </main>
+    <footer>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+        <div><small>Total</small><div class="price">R$ <span id="cartTotal">0,00</span></div></div>
+        <button class="btn pink" id="checkout">Finalizar</button>
+      </div>
+    </footer>
+  </aside>
 
-    document.querySelectorAll('.product-card .add').forEach(btn => {
-      btn.addEventListener('click', e => {
+  <script>
+    // ========= Cursor neon =========
+    const cursor = document.getElementById('cursor');
+    window.addEventListener('mousemove', (e)=>{
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+
+    // ========= Carrinho =========
+    const cart = { items: [], total: 0 };
+    const cartCount = document.getElementById('cartCount');
+    const cartList = document.getElementById('cartList');
+    const cartTotal = document.getElementById('cartTotal');
+
+    const moneyBR = n => n.toLocaleString('pt-BR',{minimumFractionDigits:2, maximumFractionDigits:2});
+
+    document.querySelectorAll('.product-card .add').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
         const card = e.currentTarget.closest('.product-card');
         const id = card.dataset.id;
+        const title = card.querySelector('.product-title').textContent.trim();
         const price = Number(card.dataset.price);
-        cart.items++;
-        cartCount.textContent = cart.items;
-        showToast(`“${card.querySelector('.product-title').textContent}” adicionado — R$ ${moneyBR(price)}`);
+        cart.items.push({id,title,price});
+        cart.total += price;
+        cartCount.textContent = cart.items.length;
+        renderCart();
+        showToast(`“${title}” adicionado — R$ ${moneyBR(price)}`);
       })
     })
 
-    // Smooth scroll para links âncora
-    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', ev => {
-      const id = a.getAttribute('href');
-      const target = document.querySelector(id);
-      if(target){ ev.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
-    }))
-
-    // Toast minimalista
-    function showToast(msg){
-      const el = document.getElementById('toast');
-      el.textContent = msg;
-      el.classList.add('show');
-      clearTimeout(el._t);
-      el._t = setTimeout(()=> el.classList.remove('show'), 2600);
+    function renderCart(){
+      cartList.innerHTML = '';
+      cart.items.forEach((it, idx)=>{
+        const li = document.createElement('li');
+        li.style.margin = '8px 0';
+        li.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; border:1px solid var(--line); padding:8px; border-radius:10px">
+            <div>
+              <div style="font-weight:700">${it.title}</div>
+              <small class="muted">R$ ${moneyBR(it.price)}</small>
+            </div>
+            <button class="btn" data-idx="${idx}" style="padding:6px 10px">Remover</button>
+          </div>`;
+        cartList.appendChild(li);
+      });
+      cartTotal.textContent = moneyBR(cart.total);
+      cartList.querySelectorAll('button[data-idx]').forEach(b=> b.addEventListener('click', (e)=>{
+        const i = Number(e.currentTarget.dataset.idx);
+        cart.total -= cart.items[i].price; cart.items.splice(i,1); cartCount.textContent = cart.items.length; renderCart();
+      }));
     }
+
+    // Drawer
+    const drawer = document.getElementById('drawer');
+    document.getElementById('openCart').addEventListener('click', ()=> drawer.classList.add('open'));
+    document.getElementById('closeCart').addEventListener('click', ()=> drawer.classList.remove('open'));
+    document.getElementById('checkout').addEventListener('click', ()=>{
+      if(!cart.items.length) return showToast('Seu carrinho está vazio.');
+      showToast('Checkout simulado concluído. Obrigado!');
+      cart.items = []; cart.total = 0; cartCount.textContent = 0; renderCart(); drawer.classList.remove('open');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=> a.addEventListener('click', ev=>{ const id=a.getAttribute('href'); const t=document.querySelector(id); if(t){ ev.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }}));
+
+    // Toast
+    function showToast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'), 2600); }
   </script>
 </body>
 </html>
